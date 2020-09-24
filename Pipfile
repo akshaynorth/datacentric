@@ -1,2 +1,2 @@
-pipenv install gunicorn  
+pipenv install gunicorn
 pipenv install pymongo
