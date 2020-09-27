@@ -18,12 +18,14 @@ def index(environ, start_response):
 
  for recipe_doc in recipes_cursor:
      data = data + "<h1>Recipe name: {}</h1>".format(recipe_doc['recipe_name']).encode()
-     data = data + \
-         """
-         <li>{}</li>
-         """.format(
-             recipe_doc['description']
-         ).encode
+
+     for recipe_ingredient in recipe_doc['recipe_ingredients']:
+         data = data + \
+             """
+             <li>{}</li>
+             """.format(
+                 recipe_ingredient['description']
+             ).encode
 
  data = data + '</ul></body></html>'.encode()
  
