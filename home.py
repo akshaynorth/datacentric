@@ -16,10 +16,8 @@ def index(environ, start_response):
 
  data = b'<html><head><title>A test</title><body><ul>'
 
-
- data = data + "<h1>Recipe name: {}</h1>".format(recipe_doc['recipe_name'])
-
  for recipe_doc in recipes_cursor:
+     data = data + "<h1>Recipe name: {}</h1>".format(recipe_doc['recipe_name'])
      data = data + \
          """
          <li>{}</li>
