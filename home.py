@@ -6,7 +6,7 @@ import pymongo
 def index(environ, start_response):
  """Simplest possible application object"""
 
- client = pymongo.MongoClient(os['MONGODB_URI'))
+ client = pymongo.MongoClient(os['MONGODB_URI'])
 
  db = client.get_default_database()
 
