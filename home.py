@@ -25,7 +25,7 @@ def index(environ, start_response):
              <li>{}</li>
              """.format(
                  recipe_ingredient['description']
-             ).encode
+             ).encode()
 
  data = data + '</ul></body></html>'.encode()
  
