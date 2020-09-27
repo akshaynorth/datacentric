@@ -17,15 +17,15 @@ def index(environ, start_response):
  data = b'<html><head><title>A test</title><body><ul>'
 
  for recipe_doc in recipes_cursor:
-     data = data + b"<h1>Recipe name: {}</h1>".format(recipe_doc['recipe_name'])
+     data = data + "<h1>Recipe name: {}</h1>".format(recipe_doc['recipe_name']).encode()
      data = data + \
          b"""
          <li>{}</li>
          """.format(
              recipe_doc['description']
-         )
+         ).encode
 
- data = data + b'</ul></body></html>'
+ data = data + '</ul></body></html>'.encode()
  
  client.close()
 
