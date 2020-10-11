@@ -2,3 +2,4 @@ gunicorn
 pipenv
 pymongo
 flask
+Jinja2
