@@ -25,4 +25,4 @@ def index():
     for recipe_doc in recipes_cursor:
         recipe_list.append(recipe_doc)
 
-    return render_template('recipeapp/index.html', recipes=recipe_list)
+    return render_template('recipeapp/tags_sample_index.html', recipes=recipe_list)
