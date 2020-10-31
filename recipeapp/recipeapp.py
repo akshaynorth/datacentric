@@ -9,20 +9,27 @@ from flask import (
 bp = Blueprint('recipeapp', __name__)
 
 
-@bp.route('/', methods=('GET', 'POST'))
-def index():
+# @bp.route('/', methods=('GET', 'POST'))
+# def index():
+#
+#     client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+#
+#     db = client.get_default_database()
+#
+#     recipe_collection = db['recipes']
+#
+#     recipes_cursor = recipe_collection.find()
+#
+#     recipe_list = list()
+#
+#     for recipe_doc in recipes_cursor:
+#         recipe_list.append(recipe_doc)
+#
+#     return render_template('recipeapp/index.html', recipes=recipe_list)
 
-    client = pymongo.MongoClient(os.environ['MONGODB_URI'])
-
-    db = client.get_default_database()
-
-    recipe_collection = db['recipes']
-
-    recipes_cursor = recipe_collection.find()
-
-    recipe_list = list()
-
-    for recipe_doc in recipes_cursor:
-        recipe_list.append(recipe_doc)
-
-    return render_template('recipeapp/index.html', recipes=recipe_list)
+@bp.route('/', defaults={'page': 'index'}, methods=('GET', 'POST'))
+@bp.route('/<page>', methods=('GET', 'POST'))
+def show_page(page):
+    return render_template(
+        'recipeapp/{}.html'.format(page)
+    )
