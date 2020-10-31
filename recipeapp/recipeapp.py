@@ -31,5 +31,5 @@ bp = Blueprint('recipeapp', __name__)
 @bp.route('/<page>', methods=('GET', 'POST'))
 def show_page(page):
     return render_template(
-        'recipeapp/{}.html'.format(page)
+        'recipeapp/{}'.format(page)
     )
