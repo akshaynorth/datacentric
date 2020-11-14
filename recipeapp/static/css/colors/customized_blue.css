@@ -9,14 +9,14 @@
 .rsDefaultInv .rsThumb.rsNavSelected,
 .rsDefault .rsThumb.rsNavSelected,
 .ingredients input[type=checkbox]:checked + label:before {
-	border-color: #8dc63f !important;
+	border-color: #838538D !important;
 }
 
 
 .alternative #current:hover,
 .menu.alternative ul li a:hover,
 .menu.alternative ul > li.sfHover > a {
-	background-color: #8dc63f !important;
+	background-color: #838538D !important;
 }
 
 
@@ -71,7 +71,7 @@ a.adv-search-btn:hover,
 .list-1.color li:before,
 .list-2.color li:before,
 .list-3.color li:before,
-.list-4.color li:before { color: #8dc63f; }
+.list-4.color li:before { color: #38538D; }
 
 .rsDefaultInv .rsThumb.rsNavSelected {
 	-webkit-box-shadow: inset 0px -1px 0px 0px rgba(50, 50, 50, 0.12), 1px 0px 0px 0px #8dc63f;
