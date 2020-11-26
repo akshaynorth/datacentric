@@ -11,7 +11,7 @@
 		});
 
 		function addIng() {
-			var newElem = $('tr.ingredients-cont.ing:first').clone();
+			var newElem = $('table#ingredients-sort tr.ingredients-cont.ing:first').clone();
 			newElem.find('input').val('');
 			newElem.appendTo('table#ingredients-sort');
 		}
@@ -39,7 +39,7 @@
 				addIng();
 			});
 
-			$('table#ingredients-sort + .add_separator').click(function(e){
+			$('table#ingredients-sort ~ .add_separator').click(function(e){
 				e.preventDefault();
 				var newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td><input name="ingredient_note" type="text" class="notes" placeholder="Separator" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 				newElem.appendTo('table#ingredients-sort');
@@ -68,7 +68,7 @@
 				addInstruction();
 			});
 
-			$('table#instructions-sort + .add_separator').click(function(e){
+			$('table#instructions-sort ~ .add_separator').click(function(e){
 				e.preventDefault();
 				var newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="instruction_desc" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 				newElem.appendTo('table#instructions-sort');
