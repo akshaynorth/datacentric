@@ -59,9 +59,9 @@
 				opacity: 0.6,
 				tolerance: "pointer"
 			})
-
+        }
 			// Adding recipe instructions
-           if ($("table#instructions-sort").is('*')) {
+        if ($("table#instructions-sort").is('*')) {
 			$('table#instructions-sort + .add_ingredient').click(function(e){
 				e.preventDefault();
 				addInstruction();
@@ -88,6 +88,5 @@
 				tolerance: "pointer"
 			})
 	 	}
-
-	});
+	 	);
 })(this.jQuery);
