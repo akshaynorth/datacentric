@@ -208,7 +208,24 @@
 
 			<!-- Preparation Instructions -->
 			<h4>Preparation Instructions</h4>
-			<textarea class="WYSIWYG" name="directions" cols="40" rows="3" id="directions" spellcheck="true"></textarea>
+
+<!--			<textarea class="WYSIWYG" name="directions" cols="40" rows="3" id="directions" spellcheck="true"></textarea>-->
+
+			<fieldset class="addrecipe-cont" name="instructions">
+				<h4>Instructions List:</h4>
+
+				<table id="instructions-sort">
+
+					<tr class="ingredients-cont ing">
+						<td class="icon"><i class="fa fa-arrows"></i></td>
+						<td><input name="instruction_desc" tabindex="7" type="text" placeholder="recipe instruction" /> </td>
+						<td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a> </td>
+					</tr>
+				</table>
+
+				<a href="#" class="button color add_ingredient">Add new ingredient</a>
+				<a href="#" class="button add_separator">Add separator</a>
+			</fieldset>
 
 
 			<div class="margin-top-25 clearfix"></div>
