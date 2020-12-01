@@ -45,7 +45,7 @@ def show_page(page):
         client.close()
         return render_template(
             'recipeapp/{}'.format(page),
-            repipe_list=recipe_list
+            recipe_list=recipe_list
         )
 
     return render_template(
