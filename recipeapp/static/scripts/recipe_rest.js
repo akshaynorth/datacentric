@@ -15,7 +15,9 @@
                 return;
             }
 
+            // let recipe_description = $('#recipe_desc').sceditor('instance').val().trim();
             let recipe_description = $('#recipe_desc').val().trim();
+
             if (recipe_description.length == 0) {
                 alert('Please provide a recipe description.');
                 return;
