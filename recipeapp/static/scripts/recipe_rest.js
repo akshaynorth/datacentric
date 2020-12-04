@@ -14,7 +14,7 @@
 	    $('#create_recipe_btn').click(function(e) {
 	        e.preventDefault();
             create_recipe();
-	    })
-	}
+	    });
 	})
-)(this.jQuery);
+
+})(this.jQuery);
