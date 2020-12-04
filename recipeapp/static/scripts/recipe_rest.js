@@ -15,6 +15,12 @@
                 return;
             }
 
+            let recipe_description = $('#recipe_desc').val().trim();
+            if (recipe_description.length == 0) {
+                alert('Please provide a recipe description.');
+                return;
+            }
+
 	        // Send a request to the flask application to create the recipe
 	    }
 
