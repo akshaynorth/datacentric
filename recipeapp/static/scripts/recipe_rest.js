@@ -67,7 +67,30 @@
                 alert('Provide the recipe calories');
                 return;
             }
+
 	        // Send a request to the flask application to create the recipe
+            $.post({
+                url: '/recipe/create',
+                data: {
+                    name: recipe_label,
+                    type: recipe_type,
+                    recipe_desc: recipe_description,
+                    prep_time: prep_time,
+                    cook_time: cook_time,
+                    calories: calories,
+                    ingredients: ingredient_list,
+                    instructions: instruction_list,
+                },
+                dataType: 'json',
+            }).done(
+                function() {
+                    console.log('Recipe submitted');
+                }
+            ).fail(
+                function() {
+                    console.log('Recipe creation failed')
+                }
+            )
 	    }
 
 	    $('#create_recipe_btn').click(function(e) {
@@ -81,29 +104,6 @@
 	            $('#upload_picture_filename').text(this.files[0].name);
 	        }
 	    });
-
-        $.post({
-            url: '/recipe/create',
-            data: {
-                name: recipe_label,
-                type: recipe_type,
-                recipe_desc: recipe_description,
-                prep_time: prep_time,
-                cook_time: cook_time,
-                calories: calories,
-                ingredients: ingredient_list,
-                instructions: instruction_list,
-            },
-            dataType: 'json',
-        }).done(
-            function() {
-                console.log('Recipe submitted');
-            }
-        ).fail(
-            function() {
-                console.log('Recipe creation failed')
-            }
-        )
 
 	})
 
