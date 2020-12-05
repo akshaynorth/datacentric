@@ -4,7 +4,7 @@ import os
 import datetime
 
 from flask import (
-    Blueprint, flash, redirect, render_template, request, url_for
+    Blueprint, flash, redirect, render_template, request, url_for, jsonify
 )
 
 
@@ -56,29 +56,39 @@ def show_page(page):
 
 @bp.route('/recipe/create', methods=('POST',))
 def create_recipe():
-    recipe_data = request.form
+    client = None
+    try:
+        recipe_data = request.form
 
-    # Build data dictionary
-    recipe_record_dict = {
-        "creation_time": datetime.datetime.now().isoformat(),
-        "name": recipe_data['name'],
-        "type": recipe_data['type'],
-        "picture": "",
-        "prep_time": recipe_data['prep_time'],
-        "short_description": recipe_data['recipe_desc'],
-        "cook_time": recipe_data['cook_time'],
-        "calories": recipe_data['calories'],
-        "portions": "2",
-        "ingredients": recipe_data['ingredients'],
-        "instructions": recipe_data['instructions']
-    }
+        # Build data dictionary
+        recipe_record_dict = {
+            "creation_time": datetime.datetime.now().isoformat(),
+            "name": recipe_data['name'],
+            "type": recipe_data['type'],
+            "picture": "",
+            "prep_time": recipe_data['prep_time'],
+            "short_description": recipe_data['recipe_desc'],
+            "cook_time": recipe_data['cook_time'],
+            "calories": recipe_data['calories'],
+            "portions": "2",
+            "ingredients": recipe_data['ingredients'],
+            "instructions": recipe_data['instructions']
+        }
 
 
-    client = pymongo.MongoClient(os.environ['MONGODB_URI'])
-    db = client.get_default_database()
-    recipe_collection = db['recipes']
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
 
-    recipe_collection.insert(recipe_record_dict)
+        recipe_collection.insert(recipe_record_dict)
 
-    client.close()
+        client.close()
+        client = None
+
+        return jsonify(dict()), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 404
+    finally:
+        if client:
+            client.close()
 

@@ -85,10 +85,12 @@
             }).done(
                 function() {
                     console.log('Recipe submitted');
+                    alert('Recipe created successfully')
                 }
             ).fail(
-                function() {
-                    console.log('Recipe creation failed')
+                function(jqXHR, textStatus, errorThrown) {
+                    console.log('Recipe creation failed: ' + errorThrown)
+                    alert('Could not create recipe record. Try again later.')
                 }
             )
 	    }
