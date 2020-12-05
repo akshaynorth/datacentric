@@ -23,6 +23,19 @@
                 return;
             }
 
+            let ingredient_list = []
+            $('input[name="ingredient_name"]').each(
+                function() {
+                    ingredient_list.push($(this).val())
+                }
+            );
+
+            for (i in ingredient_list) {
+                if ingredient_list[i].trim().length == 0) {
+                    alert('Provide an ingredient description for each of added ingredients');
+                    return;
+                }
+            }
 
 	        // Send a request to the flask application to create the recipe
 	    }
@@ -38,6 +51,8 @@
 	            $('#upload_picture_filename').text(this.files[0].name);
 	        }
 	    });
+
+
 	})
 
 })(this.jQuery);
