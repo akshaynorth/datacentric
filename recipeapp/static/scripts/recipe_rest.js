@@ -15,7 +15,6 @@
                 return;
             }
 
-            // let recipe_description = $('#recipe_desc').sceditor('instance').val().trim();
             let recipe_description = $('#recipe_desc').val().trim();
 
             if (recipe_description.length == 0) {
@@ -51,6 +50,23 @@
                 }
             }
 
+            let prep_time = $('#prep_time').val().trim()
+            if (prep_time.length == 0) {
+                alert('Provide a preparation time');
+                return;
+            }
+
+            let cook_time = $('#cook_time').val().trim();
+            if (cook_time.length == 0) {
+                alert('Provide the cooking time');
+                return;
+            }
+
+            let calories = $('#calories').val().trim();
+            if (calories.length == 0) {
+                alert('Provide the recipe calories');
+                return;
+            }
 	        // Send a request to the flask application to create the recipe
 	    }
 
