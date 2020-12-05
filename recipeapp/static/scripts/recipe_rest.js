@@ -1,5 +1,5 @@
 (function($){
-	$(document).ready(function(){
+	$(document).ready(function() {
 	    function create_recipe() {
 	        // Gather all the information on the generate cooking directions form
             let recipe_label = $('#recipe_label').val().trim()
@@ -82,6 +82,28 @@
 	        }
 	    });
 
+        $.post({
+            url: '/recipe/create',
+            data: {
+                name: recipe_label,
+                type: recipe_type,
+                prep_time: prep_time,
+                recipe_desc: recipe_description,
+                cook_time: cook_time,
+                calories: calories,
+                ingredients: ingredient_list,
+                instructions: instruction_list,
+            },
+            dataType: 'json',
+        }).done(
+            function() {
+                console.log('Recipe submitted');
+            }
+        ).fail(
+            function() {
+                console.log('Recipe creation failed')
+            }
+        )
 
 	})
 
