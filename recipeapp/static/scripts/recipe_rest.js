@@ -69,8 +69,8 @@
             }
 
 	        // Send a request to the flask application to create the recipe
-            $.post({
-                url: '/recipe/create',
+            $.post('/recipe/create',
+            {
                 data: {
                     name: recipe_label,
                     type: recipe_type,
@@ -89,7 +89,7 @@
                 }
             ).fail(
                 function(jqXHR, textStatus, errorThrown) {
-                    console.log('Recipe creation failed: ' + errorThrown)
+                    console.log('Recipe creation failed: ' + errorThrown + ' textStatus = ' + textStatus)
                     alert('Could not create recipe record. Try again later.')
                 }
             )
