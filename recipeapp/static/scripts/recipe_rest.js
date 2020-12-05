@@ -23,12 +23,20 @@
                 return;
             }
 
+
 	        // Send a request to the flask application to create the recipe
 	    }
 
 	    $('#create_recipe_btn').click(function(e) {
 	        e.preventDefault();
             create_recipe();
+	    });
+
+	    $(':file').change(function(e) {
+	        e.preventDefault();
+	        if (this.files.length > 0) {
+	            $('#upload_picture_filename').text(this.files[0].name);
+	        }
 	    });
 	})
 
