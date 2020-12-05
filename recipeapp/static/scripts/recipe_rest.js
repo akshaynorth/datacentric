@@ -31,7 +31,7 @@
             );
 
             for (i in ingredient_list) {
-                if ingredient_list[i].trim().length == 0) {
+                if (ingredient_list[i].trim().length == 0) {
                     alert('Provide an ingredient description for each of added ingredients');
                     return;
                 }
