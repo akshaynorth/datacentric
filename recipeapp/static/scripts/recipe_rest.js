@@ -37,6 +37,20 @@
                 }
             }
 
+            let instruction_list = []
+            $('input[name="instruction_desc"]').each(
+                function() {
+                    instruction_list.push($(this).val())
+                }
+            );
+
+            for (i in instruction_list) {
+                if (instruction_list[i].trim().length == 0) {
+                    alert('Provide an instruction description for each of added instructions');
+                    return;
+                }
+            }
+
 	        // Send a request to the flask application to create the recipe
 	    }
 
