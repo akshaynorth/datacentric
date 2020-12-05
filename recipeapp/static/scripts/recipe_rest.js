@@ -15,7 +15,7 @@
                 return;
             }
 
-            let recipe_description = $('#recipe_desc').val().trim();
+            let recipe_description = $.trim($('#recipe_desc').val());
 
             if (recipe_description.length == 0) {
                 alert('Please provide a recipe description.');
@@ -87,8 +87,8 @@
             data: {
                 name: recipe_label,
                 type: recipe_type,
-                prep_time: prep_time,
                 recipe_desc: recipe_description,
+                prep_time: prep_time,
                 cook_time: cook_time,
                 calories: calories,
                 ingredients: ingredient_list,
