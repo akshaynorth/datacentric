@@ -30,7 +30,7 @@ bp = Blueprint('recipeapp', __name__)
 #     return render_template('recipeapp/index.html', recipes=recipe_list)
 
 @bp.route('/', defaults={'page': 'index.html'}, methods=('GET', 'POST'))
-@bp.route('/<page>', methods=('GET', 'POST'))
+@bp.route('/pages/<page>', methods=('GET', 'POST'))
 def show_page(page):
 
     if page == 'index.html':
