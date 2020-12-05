@@ -2,7 +2,7 @@
 	$(document).ready(function() {
 	    function create_recipe() {
 	        // Gather all the information on the generate cooking directions form
-            let recipe_label = $('#recipe_label').val().trim()
+            let recipe_label = $('#recipe_label').val().trim();
 
             if (recipe_label.length == 0) {
                 alert('Please provide a recipe label.');
