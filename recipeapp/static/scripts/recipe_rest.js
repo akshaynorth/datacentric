@@ -70,7 +70,7 @@
 
 	        // Send a request to the flask application to create the recipe
 	        let form_data = new FormData()
-	        if ($('input[type="file"]')[0].files[0].length > 0) {
+	        if ($('input[type="file"]')[0].files.length > 0) {
 	            let upload_file = $('input[type="file"]')[0].files[0]
 	            form_data.append('file', upload_file)
 	        }
@@ -90,7 +90,7 @@
                 url: '/recipe/create',
                 data: form_data,
                 processData: false,
-                contentType: 'multipart/form-data',
+                contentType: false,
                 cache: false,
                 success: function() {
                     console.log('Recipe submitted');
