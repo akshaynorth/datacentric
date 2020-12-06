@@ -39,7 +39,7 @@ def show_page(page):
         db = client.get_default_database()
         recipe_collection = db['recipes']
         # Get the latest recipes added to the database for home page display
-        recipe_cursor = recipe_collection.find().sort('date', pymongo.DESCENDING).limit(9)
+        recipe_cursor = recipe_collection.find().sort('date', pymongo.ASCENDING).limit(9)
 
         recipe_list = []
         for recipe in recipe_cursor:
