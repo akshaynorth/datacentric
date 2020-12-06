@@ -70,19 +70,19 @@
 
 	        // Send a request to the flask application to create the recipe
             $.post('/recipe/create',
-            {
-                data: {
-                    name: recipe_label,
-                    type: recipe_type,
-                    recipe_desc: recipe_description,
-                    prep_time: prep_time,
-                    cook_time: cook_time,
-                    calories: calories,
-                    ingredients: ingredient_list,
-                    instructions: instruction_list,
-                },
-                dataType: 'json',
-            }).done(
+             {
+                name: recipe_label,
+                type: recipe_type,
+                recipe_desc: recipe_description,
+                prep_time: prep_time,
+                cook_time: cook_time,
+                calories: calories,
+                ingredients: JSON.stringify(ingredient_list),
+                instructions: JSON.stringify(instruction_list)
+             },
+             function (data, textStatus, jqXHR) {},
+             'json',
+            ).done(
                 function() {
                     console.log('Recipe submitted');
                     alert('Recipe created successfully')
