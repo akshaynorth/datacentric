@@ -62,11 +62,15 @@ def create_recipe():
         recipe_data = request.form
 
         # Build data dictionary
+        image_data = ''
+        if request.files.get('file', None):
+            image_data = request.files['file'].read()
+
         recipe_record_dict = {
             "creation_time": datetime.datetime.now().isoformat(),
             "name": recipe_data['name'],
             "type": recipe_data['type'],
-            "picture": request.files['file'].read() if request.files.get('file', None),
+            "picture":  image_data,
             "prep_time": recipe_data['prep_time'],
             "short_description": recipe_data['recipe_desc'],
             "cook_time": recipe_data['cook_time'],
@@ -75,7 +79,6 @@ def create_recipe():
             "ingredients": json.loads(recipe_data['ingredients']),
             "instructions": json.loads(recipe_data['instructions'])
         }
-
 
         client = pymongo.MongoClient(os.environ['MONGODB_URI'])
         db = client.get_default_database()
