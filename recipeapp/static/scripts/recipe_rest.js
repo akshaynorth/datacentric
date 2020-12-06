@@ -69,29 +69,38 @@
             }
 
 	        // Send a request to the flask application to create the recipe
-            $.post('/recipe/create',
-             {
-                name: recipe_label,
-                type: recipe_type,
-                recipe_desc: recipe_description,
-                prep_time: prep_time,
-                cook_time: cook_time,
-                calories: calories,
-                ingredients: JSON.stringify(ingredient_list),
-                instructions: JSON.stringify(instruction_list)
-             },
-             function (data, textStatus, jqXHR) {},
-             'json',
-            ).done(
-                function() {
+	        let form_data = new FormData()
+	        if ($('input[type="file"]')[0].files[0].length > 0) {
+	            let upload_file = $('input[type="file"]')[0].files[0]
+	            form_data.append('file', upload_file)
+	        }
+
+	        form_data.append('name', recipe_label)
+	        form_data.append('type', recipe_type)
+	        form_data.append('recipe_desc', recipe_description)
+	        form_data.append('prep_time', prep_time)
+	        form_data.append('cook_time', cook_time)
+	        form_data.append('calories', calories)
+	        form_data.append('ingredients', JSON.stringify(ingredient_list))
+	        form_data.append('instructions', JSON.stringify(instruction_list))
+
+            $.ajax(
+            {
+                type: 'POST',
+                url: '/recipe/create',
+                data: form_data,
+                processData: false,
+                contentType: 'multipart/form-data',
+                cache: false,
+                success: function() {
                     console.log('Recipe submitted');
                     alert('Recipe created successfully')
-                }
-            ).fail(
-                function(jqXHR, textStatus, errorThrown) {
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Recipe creation failed: ' + errorThrown + ' textStatus = ' + textStatus)
                     alert('Could not create recipe record. Try again later.')
                 }
+            }
             )
 	    }
 

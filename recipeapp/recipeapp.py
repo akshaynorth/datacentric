@@ -1,5 +1,6 @@
 import pymongo
 import os
+import json
 
 import datetime
 
@@ -65,14 +66,14 @@ def create_recipe():
             "creation_time": datetime.datetime.now().isoformat(),
             "name": recipe_data['name'],
             "type": recipe_data['type'],
-            "picture": "",
+            "picture": request.files['file'].read() if request.files.get('file', None),
             "prep_time": recipe_data['prep_time'],
             "short_description": recipe_data['recipe_desc'],
             "cook_time": recipe_data['cook_time'],
             "calories": recipe_data['calories'],
             "portions": "2",
-            "ingredients": recipe_data['ingredients'],
-            "instructions": recipe_data['instructions']
+            "ingredients": json.loads(recipe_data['ingredients']),
+            "instructions": json.loads(recipe_data['instructions'])
         }
 
 
