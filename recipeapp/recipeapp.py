@@ -75,7 +75,7 @@ def create_recipe():
             "short_description": recipe_data['recipe_desc'],
             "cook_time": recipe_data['cook_time'],
             "calories": recipe_data['calories'],
-            "portions": "2",
+            "portions": recipe_data['portions'],
             "ingredients": json.loads(recipe_data['ingredients']),
             "instructions": json.loads(recipe_data['instructions'])
         }

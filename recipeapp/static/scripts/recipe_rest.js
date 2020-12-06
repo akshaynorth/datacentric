@@ -68,6 +68,12 @@
                 return;
             }
 
+            let portions = $('#portions').val().trim();
+            if (portions.length == 0) {
+                alert('Provide the number of portions/servings')
+                return;
+            }
+
 	        // Send a request to the flask application to create the recipe
 	        let form_data = new FormData()
 	        if ($('input[type="file"]')[0].files.length > 0) {
@@ -81,6 +87,7 @@
 	        form_data.append('prep_time', prep_time)
 	        form_data.append('cook_time', cook_time)
 	        form_data.append('calories', calories)
+	        form_data.append('portions', portions)
 	        form_data.append('ingredients', JSON.stringify(ingredient_list))
 	        form_data.append('instructions', JSON.stringify(instruction_list))
 
