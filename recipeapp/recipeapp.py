@@ -97,7 +97,7 @@ def create_recipe():
         if client:
             client.close()
 
-@bp.route('/recipe/image/<obj_id>, methods=('GET',))
+@bp.route('/recipe/image/<obj_id>', methods=('GET',))
 def create_recipe(obj_id):
     client = None
     try:
