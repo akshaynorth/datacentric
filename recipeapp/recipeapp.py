@@ -98,7 +98,7 @@ def create_recipe():
             client.close()
 
 @bp.route('/recipe/image/<obj_id>', methods=('GET',))
-def create_recipe(obj_id):
+def download_image(obj_id):
     client = None
     try:
         client = pymongo.MongoClient(os.environ['MONGODB_URI'])
