@@ -1,11 +1,12 @@
 import pymongo
 import os
 import json
+import io
 
 import datetime
 
 from flask import (
-    Blueprint, flash, redirect, render_template, request, url_for, jsonify
+    Blueprint, flash, redirect, render_template, request, url_for, jsonify, send_file, abort
 )
 
 
@@ -96,3 +97,25 @@ def create_recipe():
         if client:
             client.close()
 
+@bp.route('/recipe/image/<obj_id>, methods=('GET',))
+def create_recipe(obj_id):
+    client = None
+    try:
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        recipe_cursor = recipe_collection.find({'_id': obj_id})
+
+        if recipe_cursor.hasNext():
+            return send_file(io.BytesIO(recipe_cursor['picture']),
+                             attachment_filename='{}'.format(obj_id),
+                            )
+        else:
+            raise ValueError('Image not found for Object Id: {}'.format(obj_id))
+
+    except:
+        abort(404)
+    finally:
+        if client:
+            client.close()
