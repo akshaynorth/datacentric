@@ -5,6 +5,8 @@ import io
 
 import datetime
 
+from bson.objectid import ObjectId
+
 from flask import (
     Blueprint, flash, redirect, render_template, request, url_for, jsonify, send_file, abort
 )
@@ -105,10 +107,10 @@ def download_image(obj_id):
         db = client.get_default_database()
         recipe_collection = db['recipes']
 
-        recipe_cursor = recipe_collection.find({'_id': obj_id})
+        recipe_cursor = recipe_collection.find({'_id': ObjectId(obj_id)})
 
-        if recipe_cursor.hasNext():
-            return send_file(io.BytesIO(recipe_cursor['picture']),
+        for recipe in recipe_cursor:
+            return send_file(io.BytesIO(recipe['picture']),
                              attachment_filename='{}'.format(obj_id),
                             )
         else:
