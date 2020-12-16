@@ -2,10 +2,12 @@ import pymongo
 import os
 import json
 import io
+import re
 
 import datetime
 
 from bson.objectid import ObjectId
+from bson.regex import Regex
 
 from flask import (
     Blueprint, flash, redirect, render_template, request, url_for, jsonify, send_file, abort
@@ -91,6 +93,53 @@ def create_recipe():
 
         client.close()
         client = None
+
+        return jsonify(dict()), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 404
+    finally:
+        if client:
+            client.close()
+
+@bp.route('/recipe/search', methods=('POST',))
+def search_recipe():
+    client = None
+    try:
+        recipe_data = request.form
+
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        query_dict = dict()
+
+        recipe_type = recipe_data.get('type', None)
+        if recipe_type and recipe_type.upper() != 'ALL':
+            query_dict.update({
+                'type': recipe_type
+            })
+
+        ingredient_search_type = recipe_data.get('ingredient_search_type', None)
+        if ingredient_search_type and ingredient_search_type.upper() == 'ALL':
+            ingredient_search_op = '$all'
+        else:
+            ingredient_search_op = '$in'
+
+        ingredient_list = recipe_data.get('ingredient_list', None)
+        if ingredient_list and len(ingredient_list) > 0:
+            query_dict.update({
+                'ingredients': {
+                    ingredient_search_op: [
+                        Regex.from_native(re.compile(ing_str.replace('-','\s'), re.I)) for ing_str in ingredient_list
+                    ]
+                }
+            })
+
+        recipe_cursor = recipe_collection.find(query_dict)
+
+        recipe_list = []
+        for recipe in recipe_cursor:
+            recipe_list.append(recipe)
 
         return jsonify(dict()), 200
     except Exception as e:
