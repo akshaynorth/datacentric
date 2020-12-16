@@ -29,8 +29,12 @@
                 processData: false,
                 contentType: false,
                 cache: false,
-                success: function() {
-                    console.log('Recipe search succeeded');
+                success: function(response) {
+                    let newDoc = document.open("text/html", "replace")
+                    newDoc.write(response)
+                    newDoc.close()
+
+                    console.log('Recipe search succeeded')
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Recipe creation failed: ' + errorThrown + ' textStatus = ' + textStatus)
