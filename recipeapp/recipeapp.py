@@ -143,10 +143,10 @@ def search_recipe():
             recipe_list.append(recipe)
 
         return render_template(
-            'recipeapp/browse_recipes.html',
+            'recipeapp/browse-recipes.html',
             recipe_list=recipe_list
         )
-    except Exception as e:
+    except Exception:
         logger.exception('Could not search recipe')
         abort(404)
     finally:
