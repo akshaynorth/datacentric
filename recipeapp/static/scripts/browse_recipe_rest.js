@@ -8,10 +8,10 @@
 	        }
 
             // Ingredients search is optional
-	        let ingredient_list = $('$ingredient_list').val()
+	        let ingredient_list = $('#ingredient_list').val()
 
 	        // Ingredient search type is optional
-            let ingredient_search_type = $('$ingredient_search_type').val()
+            let ingredient_search_type = $('#ingredient_search_type').val()
 
             let form_data = new FormData()
 
