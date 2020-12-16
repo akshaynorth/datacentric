@@ -3,6 +3,7 @@ import os
 import json
 import io
 import re
+import logging
 
 import datetime
 
@@ -10,12 +11,12 @@ from bson.objectid import ObjectId
 from bson.regex import Regex
 
 from flask import (
-    Blueprint, flash, redirect, render_template, request, url_for, jsonify, send_file, abort
+    Blueprint, redirect, render_template, request, url_for, jsonify, send_file, abort
 )
 
 
 bp = Blueprint('recipeapp', __name__)
-
+logger = logging.getLogger(__name__)
 
 # @bp.route('/', methods=('GET', 'POST'))
 # def index():
@@ -145,7 +146,8 @@ def search_recipe():
             'recipeapp/browse_recipes.html',
             recipe_list=recipe_list
         )
-    except Exception:
+    except Exception as e:
+        logger.exception('Could not search recipe')
         abort(404)
     finally:
         if client:
