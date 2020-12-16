@@ -141,9 +141,12 @@ def search_recipe():
         for recipe in recipe_cursor:
             recipe_list.append(recipe)
 
-        return jsonify(dict()), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 404
+        return render_template(
+            'recipeapp/browse_recipes.html',
+            recipe_list=recipe_list
+        )
+    except Exception:
+        abort(404)
     finally:
         if client:
             client.close()
