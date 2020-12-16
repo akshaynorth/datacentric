@@ -16,7 +16,7 @@
             let form_data = new FormData()
 
             form_data.append('type', recipe_category)
-            if (ingredient_list.length > 0) {
+            if (ingredient_list != null && ingredient_list.length > 0) {
                 form_data.append('ingredient_search_type', ingredient_search_type)
                 form_data.append('ingredient_list', ingredient_list)
             }
