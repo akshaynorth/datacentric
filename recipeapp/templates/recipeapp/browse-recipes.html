@@ -208,6 +208,14 @@
 				</div>
 				
 				<div class="clearfix"></div>
+				<!-- Search Input -->
+				<nav class="search-by-keyword">
+					<form action="#" method="get">
+						<button id="search_recipe_btn">
+							<span>Search for Recipes</span><i class="fa fa-search"></i>
+						</button>
+					</form>
+				</nav>
 			</div>
 
 		</div>
@@ -250,6 +258,18 @@
 					<div class="rating five-stars">
 						<div class="star-rating"></div>
 						<div class="star-bg"></div>
+					</div>
+
+					<div class="recipe-meta">
+						<a id="edit_recipe" href="/recipe/edit/{{recipe._id}}">
+							<img src="/static/images/pencil.svg" alt="Edit recipe icon" />
+						</a>
+					</div>
+
+					<div class="recipe-meta">
+						<a id="delete_recipe" href="/recipe/delete/{{recipe._id}}">
+							<img src="/static/images/trash.svg" alt="Delete recipe icon"/>
+						</a>
 					</div>
 
 					<div class="recipe-meta"><i class="fa fa-clock-o"></i>{{recipe.prep_time}}</div>

@@ -45,9 +45,36 @@
 
 	    }
 
+        function delete_recipe() {
+
+            $.ajax(
+            {
+                type: 'POST',
+                url: $('delete_recipe').attr('href'),
+                data: {},
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(response) {
+                    console.log('Recipe delete succeeded')
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log('Recipe deletion failed: ' + errorThrown + ' textStatus = ' + textStatus)
+                    alert('Could not delete recipe. Try again later.')
+                }
+            }
+            )
+        }
+
         $('#search_recipe_btn').click(function (e) {
             e.preventDefault()
             submit_recipe_search()
         })
+
+        $('#delete_recipe').click(function (e) {
+            e.preventDefault()
+            delete_recipe()
+        })
+
 	})
 })(this.jQuery);

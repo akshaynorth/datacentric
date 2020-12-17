@@ -153,6 +153,37 @@ def search_recipe():
         if client:
             client.close()
 
+@bp.route('/recipe/edit/<obj_id>', methods=('POST',))
+def edit_recipe(obj_id):
+    client = None
+    try:
+        recipe_data = request.form
+
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        query_dict = {
+            '_id': ObjectId(obj_id)
+        }
+
+        recipe_cursor = recipe_collection.find(query_dict)
+        recipe = next(recipe_cursor)
+
+        if not recipe:
+            raise ValueError('Recipe not found')
+
+        return render_template(
+            'recipeapp/edit-recipe.html',
+            recipe=recipe
+        )
+    except Exception:
+        logger.exception('Could not search recipe')
+        abort(404)
+    finally:
+        if client:
+            client.close()
+
 @bp.route('/recipe/image/<obj_id>', methods=('GET',))
 def download_image(obj_id):
     client = None
@@ -172,6 +203,65 @@ def download_image(obj_id):
 
     except:
         abort(404)
+    finally:
+        if client:
+            client.close()
+
+
+@bp.route('/recipe/edit_submit/<obj_id>', methods=('POST',))
+def edit_submit(obj_id):
+    client = None
+    try:
+        recipe_data = request.form
+
+        # Build data dictionary
+        image_data = ''
+        if request.files.get('file', None):
+            image_data = request.files['file'].read()
+
+        recipe_record_dict = {
+            "creation_time": datetime.datetime.now().isoformat(),
+            "name": recipe_data['name'],
+            "type": recipe_data['type'],
+            "picture":  image_data,
+            "prep_time": recipe_data['prep_time'],
+            "short_description": recipe_data['recipe_desc'],
+            "cook_time": recipe_data['cook_time'],
+            "calories": recipe_data['calories'],
+            "portions": recipe_data['portions'],
+            "ingredients": json.loads(recipe_data['ingredients']),
+            "instructions": json.loads(recipe_data['instructions'])
+        }
+
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        recipe_collection.update({'_id': ObjectId(obj_id)}, recipe_record_dict)
+
+        return jsonify(dict()), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 404
+    finally:
+        if client:
+            client.close()
+
+@bp.route('/recipe/delete/<obj_id>', methods=('POST',))
+def delete_recipe(obj_id):
+    client = None
+    try:
+        recipe_data = request.form
+
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        recipe_cursor = recipe_collection.remove({'_id': ObjectId(obj_id)})
+
+        return jsonify(dict()), 200
+    except Exception as e:
+        logger.exception('Could not delete recipe')
+        return jsonify({'error': str(e)}), 404
     finally:
         if client:
             client.close()
