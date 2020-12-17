@@ -57,6 +57,7 @@
                 cache: false,
                 success: function(response) {
                     console.log('Recipe delete succeeded')
+                    alert('Recipe has been deleted.')
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log('Recipe deletion failed: ' + errorThrown + ' textStatus = ' + textStatus)

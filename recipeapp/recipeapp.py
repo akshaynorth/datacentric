@@ -153,7 +153,7 @@ def search_recipe():
         if client:
             client.close()
 
-@bp.route('/recipe/edit/<obj_id>', methods=('POST',))
+@bp.route('/recipe/edit/<obj_id>', methods=('GET',))
 def edit_recipe(obj_id):
     client = None
     try:
