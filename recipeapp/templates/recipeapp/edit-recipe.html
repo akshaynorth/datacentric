@@ -135,12 +135,12 @@
 				<h4>Recipe Type</h4>
 				<select id="recipe_type" data-placeholder="Choose Category" class="chosen-select-no-single">
 					{% for recipe_type in ['All', 'Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads', 'Beef', 'Poultry', 'Pork', 'Seafood', 'Vegetarian', 'Vegetables', 'Desserts', 'Canning', 'Breads', 'Holidays'] %}
-
-					{% if recipe.type == recipe_type %}
-						<option value="{{recipe.type}}" selected>{{recipe.type}}</option>
-					{% else %}
-						<option value="{{recipe.type}}">{{recipe.type}}</option>
-					{% endif %}
+						{% if recipe.type == recipe_type %}
+							<option value="{{recipe.type}}" selected>{{recipe.type}}</option>
+						{% else %}
+							<option value="{{recipe.type}}">{{recipe.type}}</option>
+						{% endif %}
+					{% endfor %}
 				</select>
 			</div>
 
