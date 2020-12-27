@@ -45,12 +45,12 @@
 
 	    }
 
-        function delete_recipe() {
+        function delete_recipe(delete_link_obj) {
 
             $.ajax(
             {
                 type: 'POST',
-                url: $('delete_recipe').attr('href'),
+                url: $(this).attr('href'),
                 data: {},
                 processData: false,
                 contentType: false,
@@ -72,9 +72,9 @@
             submit_recipe_search()
         })
 
-        $('#delete_recipe').click(function (e) {
+        $('#[id^=delete_recipe]').click(function (e) {
             e.preventDefault()
-            delete_recipe()
+            delete_recipe(this)
         })
 
 	})
