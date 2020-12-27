@@ -50,7 +50,7 @@
             $.ajax(
             {
                 type: 'POST',
-                url: $(this).attr('href'),
+                url: $(delete_link_obj).attr('href'),
                 data: {},
                 processData: false,
                 contentType: false,
