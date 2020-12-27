@@ -157,8 +157,6 @@ def search_recipe():
 def edit_recipe(obj_id):
     client = None
     try:
-        recipe_data = request.form
-
         client = pymongo.MongoClient(os.environ['MONGODB_URI'])
         db = client.get_default_database()
         recipe_collection = db['recipes']
@@ -207,6 +205,35 @@ def download_image(obj_id):
         if client:
             client.close()
 
+
+@bp.route('/recipe/view/<obj_id>', methods=('GET',))
+def view_recipe(obj_id):
+    client = None
+    try:
+        client = pymongo.MongoClient(os.environ['MONGODB_URI'])
+        db = client.get_default_database()
+        recipe_collection = db['recipes']
+
+        query_dict = {
+            '_id': ObjectId(obj_id)
+        }
+
+        recipe_cursor = recipe_collection.find(query_dict)
+        recipe = next(recipe_cursor)
+
+        if not recipe:
+            raise ValueError('Recipe not found')
+
+        return render_template(
+            'recipeapp/recipe-page-1.html',
+            recipe=recipe
+        )
+    except Exception:
+        logger.exception('Could not search recipe')
+        abort(404)
+    finally:
+        if client:
+            client.close()
 
 @bp.route('/recipe/edit_submit/<obj_id>', methods=('POST',))
 def edit_submit(obj_id):
