@@ -72,7 +72,7 @@
             submit_recipe_search()
         })
 
-        $('#[id^=delete_recipe]').click(function (e) {
+        $('[id^=delete_recipe]').click(function (e) {
             e.preventDefault()
             delete_recipe(this)
         })
