@@ -225,7 +225,7 @@ def view_recipe(obj_id):
             raise ValueError('Recipe not found')
 
         return render_template(
-            'recipeapp/recipe-page-1.html',
+            'recipeapp/recipe-view.html',
             recipe=recipe
         )
     except Exception:
@@ -277,13 +277,11 @@ def edit_submit(obj_id):
 def delete_recipe(obj_id):
     client = None
     try:
-        recipe_data = request.form
-
         client = pymongo.MongoClient(os.environ['MONGODB_URI'])
         db = client.get_default_database()
         recipe_collection = db['recipes']
 
-        recipe_cursor = recipe_collection.remove({'_id': ObjectId(obj_id)})
+        recipe_collection.remove({'_id': ObjectId(obj_id)})
 
         return jsonify(dict()), 200
     except Exception as e:
