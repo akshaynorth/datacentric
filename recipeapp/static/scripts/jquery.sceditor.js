@@ -33,12 +33,6 @@
 				addIng();
 			});
 
-			$('table#ingredients-sort ~ .add_separator').click(function(e){
-				e.preventDefault();
-				var newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
-				newElem.appendTo('table#ingredients-sort');
-			});
-
 			// remove ingredient
 			$('#ingredients-sort .delete').live('click',function(e){
 				e.preventDefault();
@@ -60,12 +54,6 @@
 			$('table#instructions-sort + .add_ingredient').click(function(e){
 				e.preventDefault();
 				addInstruction();
-			});
-
-			$('table#instructions-sort ~ .add_separator').click(function(e){
-				e.preventDefault();
-				var newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="instruction_desc" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
-				newElem.appendTo('table#instructions-sort');
 			});
 
 			// remove instruction
