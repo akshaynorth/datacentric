@@ -11,7 +11,7 @@
 		        newElem = $('table#ingredients-sort tr.ingredients-cont.ing:first').clone();
 		    }
 		    else {
-		        newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
+		        newElem = $('<tr class="ingredients-cont ing"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
 			newElem.appendTo('table#ingredients-sort');
@@ -23,7 +23,7 @@
 		        newElem = $('table#instructions-sort tr.ingredients-cont.ing:first').clone();
 		    }
 		    else {
-                newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="instruction_desc" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
+                newElem = $('<tr class="ingredients-cont ing"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="instruction_desc" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
             newElem.find('input').val('');
