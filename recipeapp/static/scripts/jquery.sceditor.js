@@ -17,7 +17,7 @@
             newElem.find('input').val('');
 
             let add_to_selector = 'table#ingredients-sort';
-            if ($('table#ingredients-sort tbody').is(*)) {
+            if ($('table#ingredients-sort tbody').is('*')) {
                 add_to_selector = 'table#ingredients-sort tbody';
             }
 
@@ -36,7 +36,7 @@
             newElem.find('input').val('');
 
             let add_to_selector = 'table#instructions-sort'
-            if ($('table#instructions-sort tbody').is(*)) {
+            if ($('table#instructions-sort tbody').is('*')) {
                 add_to_selector = 'table#instructions-sort tbody';
             }
 
