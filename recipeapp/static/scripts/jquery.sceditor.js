@@ -14,14 +14,7 @@
 		        newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
-            newElem.find('input').val('');
-
-            let add_to_selector = 'table#ingredients-sort';
-            if ($('table#ingredients-sort tbody').is('*')) {
-                add_to_selector = 'table#ingredients-sort tbody';
-            }
-
-			newElem.appendTo(add_to_selector);
+			newElem.appendTo('table#ingredients-sort');
 		}
 
 		function addInstruction() {
@@ -35,12 +28,7 @@
 
             newElem.find('input').val('');
 
-            let add_to_selector = 'table#instructions-sort'
-            if ($('table#instructions-sort tbody').is('*')) {
-                add_to_selector = 'table#instructions-sort tbody';
-            }
-
-			newElem.appendTo(add_to_selector);
+			newElem.appendTo('table#instructions-sort');
 		}
 
 		//sortable table
