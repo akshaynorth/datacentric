@@ -7,28 +7,40 @@
 		function addIng() {
 		    let newElem = null;
 
-		    if ($("table#ingredients-sort").is('*')) {
+		    if ($("table#ingredients-sort tr").is('*')) {
 		        newElem = $('table#ingredients-sort tr.ingredients-cont.ing:first').clone();
 		    }
 		    else {
 		        newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
-			newElem.find('input').val('');
-			newElem.appendTo('table#ingredients-sort');
+            newElem.find('input').val('');
+
+            let add_to_selector = 'table#ingredients-sort';
+            if ($('table#ingredients-sort tbody').is(*)) {
+                add_to_selector = 'table#ingredients-sort tbody';
+            }
+
+			newElem.appendTo(add_to_selector);
 		}
 
 		function addInstruction() {
 		    let newElem = null;
-		    if ($("table#instructions-sort").is('*')) {
+		    if ($("table#instructions-sort tr").is('*')) {
 		        newElem = $('table#instructions-sort tr.ingredients-cont.ing:first').clone();
 		    }
 		    else {
                 newElem = $('<tr class="ingredients-cont separator"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="instruction_desc" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
-			newElem.find('input').val('');
-			newElem.appendTo('table#instructions-sort');
+            newElem.find('input').val('');
+
+            let add_to_selector = 'table#instructions-sort'
+            if ($('table#instructions-sort tbody').is(*)) {
+                add_to_selector = 'table#instructions-sort tbody';
+            }
+
+			newElem.appendTo(add_to_selector);
 		}
 
 		//sortable table
