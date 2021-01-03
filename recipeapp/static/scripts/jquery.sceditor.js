@@ -14,6 +14,7 @@
 		        newElem = $('<tr class="ingredients-cont ing"><td class="icon"><i class="fa fa-arrows"></i></td><td><input name="ingredient_name" type="text" class="ingredient" placeholder="" /></td><td class="action"><a title="Delete" class="delete" href="#"><i class="fa fa-remove"></i></a></td></tr>');
 		    }
 
+            newElem.find('input').val('');
 			newElem.appendTo('table#ingredients-sort');
 		}
 
