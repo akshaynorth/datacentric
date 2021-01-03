@@ -201,6 +201,9 @@
 
 
 <div class="margin-top-35"></div>
+	<!--
+		Display the list of recipes found. The recipe_list variable is passed in the context with the list of recipes
+	-->
 {% if recipe_list %}
 <!-- Container -->
 <div class="container">
@@ -215,6 +218,9 @@
 
 		<!-- Isotope -->
 		<div class="isotope">
+			<!--
+				Iterate through the list of recipes and display their information
+			-->
 			{% for recipe in recipe_list %}
 			<!-- Recipe #{{loop.index}} -->
 			<div class="four isotope-box columns">
@@ -331,7 +337,9 @@
 <script src="/static/scripts/jquery.pricefilter.js"></script>
 <script src="/static/scripts/custom.js"></script>
 
-<!-- Recipe Browse RESTFul -->
+<!--
+Recipe Browse RESTFul. This JavaScript was added to enable the submission of search data to the server.
+-->
 <script type="text/javascript" src="/static/scripts/browse_recipe_rest.js"></script>
 
 </body>

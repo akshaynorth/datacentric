@@ -134,6 +134,7 @@
 	
 	<!-- Slide #3 -->
 	<div class="rsContent">
+		<!-- Obtained Egusi Soup image from https://www.preciouscore.com/egusi-soup/ -->
 		<a class="rsImg" href="/static/images/egusi_soup.jpg"></a>
 		<i class="rsTmb">Egusi Soup <br> Nigerian Egusi Soup</i>
 
@@ -165,6 +166,11 @@
 	
 	<!-- Slide #4 -->   
 	<div class="rsContent">
+		<!--
+		Obtained Edikanikong image from https://foodempire.com.ng/product/edikanikong-soup/
+		Ingredients and Instructions and author image from:
+		http://dooneyskitchen.com/edikaikong-a-traditional-calabar-recipe/
+		-->
 		<a class="rsImg" href="/static/images/edikanikong.jpg"></a>
 		<i class="rsTmb">Edikanikong Soup</i>
 
@@ -196,6 +202,14 @@
 	
 	<!-- Slide #5 -->
 	<div class="rsContent">
+		<!--
+		Image From: https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
+
+		Ingredients, description, Instructions from:
+			https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
+		Downloaded Image for Chef Michael Smith from:
+			https://www.cookthatbook.com/contact-us/interview-with-chef-michael-smith/
+		-->
 		<a class="rsImg" href="/static/images/monika_tilapia.jpg"></a>
 		<i class="rsTmb">Monika Tilapia <br> Grilled Tilapia</i>
 
@@ -243,7 +257,12 @@
 
 		<!-- Isotope -->
 		<div class="isotope">
-
+			<!--
+				This section was altered from the initial template to render the most recently added recipes to the
+				MongoDB database. The recipe image is obtained from an endpoint dedicated to obtain recipe images.
+				The recipe details can be viewed by clicking on a recipe thumbnail. Proceed to click on tnhe link
+				of the recipe image and a new page is displayed with that recipe details.
+			-->
 			{% for recipe in recipe_list %}
 			<!-- Recipe #{{loop.index}} -->
 			<div class="four recipe-box columns">
@@ -270,26 +289,6 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-
-
-<!-- Sidebar
-================================================== -->
-<div class="four columns">
-	<!-- Author Box -->
-	<div class="widget">
-		<div class="author-box">
-			<span class="title">Author</span>
-			<span class="name">Nma <br> Okpara</span>
-			<span class="contact"><a href="mailto:nma_okpara@comeshop.com">nma_okpara@comeshop.com</a></span>
-			<!-- Image for NMA Okapara obtained from: http://www.nigerianlazychef.com/author/nma/ -->
-			<img src="/static/images/nma_okapara.jpg" alt="NMA Okapara Image">
-			<p>This is one of my favorite recipes this year! It’s like a redo of my Jollof fried rice recipe; only with
-				the use of Atadindin. The  beauty of this recipe is that, you can make it with any spicy Nigerian stew.
-				The beauty also lies in the combination of the spicy stew with basil. Ordinarily, if you have had
-				Efirin/basil stew, you will know the deliciousness that it carries with it.</p>
-		</div>
-	</div>
-</div>
 
 
 </div>

@@ -92,6 +92,10 @@
 <!-- Content
 ================================================== -->
 <div class="container">
+	<!--
+	This section was altered from the initial site template to have recipe fields populated with data. The data is
+	obtained from the database and is passed in the context via the recipe variable
+	-->
 	<div class="sixteen columns">
 		<div class="submit-recipe-form">
 
@@ -113,6 +117,7 @@
 				<select id="recipe_type" data-placeholder="Choose Category" class="chosen-select-no-single">
 					{% for recipe_type in ['All', 'Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads', 'Beef', 'Poultry', 'Pork', 'Seafood', 'Vegetarian', 'Vegetables', 'Desserts', 'Canning', 'Breads', 'Holidays'] %}
 						{% if recipe.type == recipe_type %}
+							<!-- Have the recipe type for the recipe be displayed as the selected value -->
 							<option value="{{recipe_type}}" selected>{{recipe_type}}</option>
 						{% else %}
 							<option value="{{recipe_type}}">{{recipe_type}}</option>
@@ -140,6 +145,10 @@
 			<!-- Recipe Picture -->
 			<h4>Upload Recipe Picture</h4>
 
+			<!--
+			The recipe photo is optional. The file name is displayed only when the user selects a new image to be
+			updated for the recipe via the Upload button
+			-->
 			<ul  class="recipe-gallery">
 				<li id="upload_picture_filename">No picture uploaded yet</li>
 			</ul>
@@ -159,7 +168,10 @@
 				<h4>Ingredient List:</h4>
 
 				<table id="ingredients-sort">
-
+					<!--
+					Display the list of all ingredients associated with the recipe. Each recipe ingredient is displayed
+					in its own row inside a table
+					-->
 					{% for recipe_ingredient in recipe.ingredients %}
 					<tr class="ingredients-cont ing">
 						<td class="icon"><i class="fa fa-arrows"></i></td>
@@ -173,6 +185,7 @@
 
 				</table>
 
+				<!-- Although this is a hyperlink it is presented to the user as a button to add an ingredient -->
 				<a href="#" class="button color add_ingredient">Add new ingredient</a>
 			</fieldset>
 
@@ -183,12 +196,14 @@
 			<!-- Preparation Instructions -->
 			<h4>Preparation Instructions</h4>
 
-<!--			<textarea class="WYSIWYG" name="directions" cols="40" rows="3" id="directions" spellcheck="true"></textarea>-->
-
 			<fieldset class="addrecipe-cont" name="instructions">
 				<h4>Instructions List:</h4>
 
 				<table id="instructions-sort">
+					<!--
+					Display list of instructions for the recipe. Each instruction is displayed on its own row inside the
+					recipe instruction table
+					-->
 					{% for recipe_instruction in recipe.instructions %}
 					<tr class="ingredients-cont ing">
 						<td class="icon"><i class="fa fa-arrows"></i></td>
@@ -206,7 +221,6 @@
 
 
 			<div class="margin-top-25 clearfix"></div>
-
 
 			<!-- Additional Cooking Information -->
 			<h4>Additional Cooking Information</h4>
@@ -337,7 +351,10 @@
 <script type="text/javascript" src="/static/scripts/jquery.sceditor.bbcode.min.js"></script>
 <script type="text/javascript" src="/static/scripts/jquery.sceditor.js"></script>
 
-<!-- Recipe Edit RESTFul -->
+<!--
+ Recipe Edit RESTFul. This was added from the initial site template to enable the submission of the recipe to the
+ defined recipe submit RESTFul API Flask endpoint
+ -->
 <script type="text/javascript" src="/static/scripts/edit_submit_rest.js"></script>
 
 </body>

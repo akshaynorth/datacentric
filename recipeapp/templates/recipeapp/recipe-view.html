@@ -72,7 +72,11 @@
 <!-- Content
 ================================================== -->
 <div class="container" itemscope itemtype="http://schema.org/Recipe">
-
+	<!--
+	Display the contents of the recipe details. This page did not exist in the initial site template to display the
+	details for recipes. Individual recipe detail pages were hardcoded and did not provide the capability to display the
+	details of recipes for newly added recipes on the database
+	-->
 	<!-- Recipe -->
 	<div class="twelve columns">
 	<div class="alignment">
@@ -112,6 +116,10 @@
 		<h3>Ingredients</h3>
 		<!-- Ingredients obtained from http://www.nigerianlazychef.com/2016/12/atadindin-fried-rice-jollof-fried-ricelazychef-christmas/ -->
 		<ul class="ingredients">
+			<!--
+			Display the list of all the ingredients. Each ingredient can be selected although it is just a visual aid to
+			the user. The ingredient is strikethrough and no specific action altering any data occurs
+			-->
 			{% for ingredient in recipe.ingredients %}
 			<li>
 				<input id="check-{{loop.index}}" type="checkbox" name="check" value="check-{{loop.index}}">
@@ -125,6 +133,9 @@
 		<!-- Directions obtained from http://www.nigerianlazychef.com/2016/12/atadindin-fried-rice-jollof-fried-ricelazychef-christmas/ -->
 		<h3>Directions</h3>
 		<ol class="directions" itemprop="recipeInstructions">
+			<!--
+			Display the list of instructions to the users. The list is read-only.
+			-->
 			{% for instruction in recipe.instructions %}
 			<li>{{instruction}}</li>
 			{% endfor %}
