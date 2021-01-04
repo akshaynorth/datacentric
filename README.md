@@ -57,10 +57,7 @@ This sticky property worked in accordance to design when it was tested on both c
 This website provides ease of use for its users/customers.
 
 ## Information Architecture
-This website meets the standard structural and behavioral design criteria and is presented in an organized routine. Please refer to project goals and user stories.  
-
-## Defensive Design 
-The website 
+This website meets the standard structural and behavioral design criteria and is presented in an organized routine. Please refer to project goals and user stories.   
 # Layout and Visual Impact:
 * Responsive Design –I used CSS to enable automated adjustments of screen sizes for multiple devices. I tested the site response in multiple simulated devices (tablets and mobile) and the site responded by adjusting its layout to the simulated screen sizes. Navbar on tablet resolutions was implemented in a similar fashion to Desktop for swift navigation. 
 * Image Presentation - This website renders images, true to form and not small or stretched in anyway and meets the standard structural and behavioral design criteria and is presented in an organized routine. 
@@ -254,14 +251,16 @@ To deploy the application on the Heroku platform follow these steps:
 
 ## Code Template Credits
 For the development of this milestone project 1 a website template was employed. 
-The template contains a set of HTML, CSS (Bootstrap4), JavaScript files that can be
-altered as needed. The code was downloaded from the following website::
+The template contains a set of HTML, CSS, JavaScript files that can be
+altered as needed. The code was downloaded from the following website:
 
-    https://themewagon.com/
+  http://preview.themeforest.net/item/chow-recipes-food-html5-template/full_screen_preview/9711524?ref=phdev
 
 ## Reference
 
 * 805 Restaurant. [Online]. [Accessed 19 October 2020]. Available from: https://www.805restaurants.com/our-restaurants/hendon-central?view=menu
+
+* Themefroest. [Online]. [Accessed 2 October 2020]. Available from: http://preview.themeforest.net/item/chow-recipes-food-html5-template/full_screen_preview/9711524?ref=phdev
 
 * Nigerian Lazy Chef. [Online]. [Accessed 30 October 2020]. Available from: http://www.nigerianlazychef.com/2016/12/atadindin-fried-rice-jollof-fried-ricelazychef-christmas/
 
@@ -278,7 +277,7 @@ altered as needed. The code was downloaded from the following website::
 * Preciouscore. [Online].[Accessed 17 November 2020]. Available from:
 https://www.preciouscore.com/egusi-soup/ *Image, Description, Ingredients and Instructions obtained from*: https://www.preciouscore.com/egusi-soup/
 
-* EDIKANOKONG SOUP. [Online].[Accessed 21 November 2020]. Available from: 
+* EDIKANOKONG SOUP. [Online].[Accessed 21 November 2020]. Available from: https://foodempire.com.ng/product/edikanikong-soup/
 
 * Foodempire. [Online]. [Accessed 22 November 2020]. Available from: https://foodempire.com.ng/product/edikanikong-soup/
 
