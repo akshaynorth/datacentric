@@ -135,7 +135,7 @@
 			<textarea
 					id="recipe_desc"
 					class="WYSIWYG"
-					name="summary" cols="40" rows="3" id="summary" spellcheck="true">{{recipe.short_description}}
+					name="summary" cols="40" rows="3" spellcheck="true">{{recipe.short_description}}
 			</textarea>
 
 
@@ -254,7 +254,7 @@
 				<table>
 
 				<tr class="ingredients-cont">
-					<td class="label"><label for="5">Calories</label></td>
+					<td class="label"><label for="calories">Calories</label></td>
 					<td><input id="calories" type="text" value="{{recipe.calories}}"/></td>
 
 				</tr>
@@ -348,14 +348,14 @@
 
 
 <!-- WYSIWYG Editor -->
-<script type="text/javascript" src="/static/scripts/jquery.sceditor.bbcode.min.js"></script>
-<script type="text/javascript" src="/static/scripts/jquery.sceditor.js"></script>
+<script src="/static/scripts/jquery.sceditor.bbcode.min.js"></script>
+<script src="/static/scripts/jquery.sceditor.js"></script>
 
 <!--
  Recipe Edit RESTFul. This was added from the initial site template to enable the submission of the recipe to the
  defined recipe submit RESTFul API Flask endpoint
  -->
-<script type="text/javascript" src="/static/scripts/edit_submit_rest.js"></script>
+<script src="/static/scripts/edit_submit_rest.js"></script>
 
 </body>
 </html>
