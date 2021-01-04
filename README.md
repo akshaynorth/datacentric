@@ -11,17 +11,20 @@ This full-stack culinary site was created for foodies in mind. The site allows u
 
 ## UX design
 In regard to UX design, I implemented the following: 
-•	Leveraged CSS and Bootstrap for Web and mobile first user experience.
-•	Used javascript and jQuery used to interaction of the webform i..e CREATE, READ, UPDATE, DELETE (CRUD) calls, input field validation, RESTful request (from the browser to the application server).
-•	In the context of this Flask based application, I used flask to serve the endpoints needed to perform CRUD calls through RESTful requests on the MongoDB instance. 
+* Leveraged CSS and Bootstrap for Web and mobile first user experience.
+* Used javascript and jQuery used to interaction of the webform i..e CREATE, READ, UPDATE, DELETE (CRUD) calls, input field validation, RESTful request (from the browser to the application server).
 
-           	Find wireframe from link below:
-	![](./wireframes/datacentric_wireframe.png)
+In the context of this Flask based application, I used flask to serve the endpoints needed to perform CRUD calls through RESTful requests on the MongoDB instance. 
 
-	User Stories
-	Important Notes: No authentication was expected for this project. The
-	focus is on the data, rather than any business logic, hence this feature was
-	not implemented. 
+Find wireframe from link below:
+
+![WireframeImage](./wireframes/datacentric_wireframe.png)
+
+### User Stories
+
+Important Notes: No authentication was expected for this project. The
+focus is on the data, rather than any business logic, hence this feature was
+not implemented. 
 
 As a viewer aged between 13 years above, I want to 
 1.	The ability to easily find and understand the controls for the application so that I can operate it easily.
@@ -59,9 +62,9 @@ This website meets the standard structural and behavioral design criteria and is
 ## Defensive Design 
 The website 
 # Layout and Visual Impact:
-•	Responsive Design –I used CSS to enable automated adjustments of screen sizes for multiple devices. I tested the site response in multiple simulated devices (tablets and mobile) and the site responded by adjusting its layout to the simulated screen sizes. Navbar on tablet resolutions was implemented in a similar fashion to Desktop for swift navigation. 
-•	Image Presentation - This website renders images, true to form and not small or stretched in anyway and meets the standard structural and behavioral design criteria and is presented in an organized routine. 
-•	Colour scheme and typography – The colour scheme on the website is consistent and does not hinder readability in any way. Primary action buttons have the same colour theme with the website.
+* Responsive Design –I used CSS to enable automated adjustments of screen sizes for multiple devices. I tested the site response in multiple simulated devices (tablets and mobile) and the site responded by adjusting its layout to the simulated screen sizes. Navbar on tablet resolutions was implemented in a similar fashion to Desktop for swift navigation. 
+* Image Presentation - This website renders images, true to form and not small or stretched in anyway and meets the standard structural and behavioral design criteria and is presented in an organized routine. 
+* Colour scheme and typography – The colour scheme on the website is consistent and does not hinder readability in any way. Primary action buttons have the same colour theme with the website.
 
 # Software Development practices:
 Directory Structure and File Naming – I went through systematic approach to develop a naming convention. After establishing this, I created html files for each website page as well as naming the pages to correspond to the top menu bar drop down. File naming and Directory structure are consistent to as seen in professional web development. 
@@ -77,46 +80,57 @@ Here are the test results:
 
 Jollof Rice details page
 ------------------------
+```
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 
 From line 95, column 3; to line 95, column 55
 
-ils --><section class="recipe-details" itemprop="nutrition">	
+ils --><section class="recipe-details" itemprop="nutrition">
+```
 
 Grilled Tiger Prawns details page
 ---------------------------------
+```
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 
 From line 95, column 3; to line 95, column 55
 
 ils --><section class="recipe-details" itemprop="nutrition">
+```
 
 Nigerian Egusi Soup details page
 --------------------------------
+```
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 
 From line 95, column 3; to line 95, column 55
 
 ils --><section class="recipe-details" itemprop="nutrition">
+```
 
 Edikanikong details page
 ------------------------
+```
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 
 From line 95, column 3; to line 95, column 55
 
-ils --><section class="recipe-details" itemprop="nutrition">	
+ils --><section class="recipe-details" itemprop="nutrition">
+```
 
 Monika Tilapia details page
 ---------------------------
+```
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections.
 
 From line 95, column 3; to line 95, column 55
 
 ils --><section class="recipe-details" itemprop="nutrition">		
+```
 
 Edit Recipe Page
 ----------------
+```
 Error: Duplicate attribute id.
 
 At line 200, column 42
@@ -146,9 +160,11 @@ Error: The value of the for attribute of the label element must be the ID of a n
 From line 463, column 24; to line 463, column 38
 
 s="label"><label for="5">Calori
+```
 
 Browse Recipe Page
 ------------------
+```
 Error: Attribute ata-placeholder not allowed on element select at this point.
 
 From line 114, column 6; to line 114, column 104
@@ -169,10 +185,11 @@ Warning: The type attribute is unnecessary for JavaScript resources.
 From line 286, column 1; to line 286, column 75
 
 rver.--><script type="text/javascript" src="/static/scripts/browse_recipe_rest.js"></scri
+```
 
 Submit Recipe Page
 ------------------
-
+```
 Error: Duplicate attribute id.
 
 At line 143, column 42
@@ -202,6 +219,8 @@ Error: The value of the for attribute of the label element must be the ID of a n
 From line 240, column 24; to line 240, column 38
 
 s="label"><label for="5">Calori
+```
+
 ## Testing write-up
 I tested all the links to make sure there was no broken links.
 Visual inspection was executed for typos and a proper display of html elements. 
@@ -210,8 +229,7 @@ System Test was executing to make sure dropdown pages were rendered in accordanc
 ## Readme file
 The readme file incorporates all the desired components of documentation along with competent formatting and use of markdown and it includes user stories and linked wireframes.
 ## Data store integration
-The MongoDB database as a service offering from www.mongodb.com was used for this project. The offering includes a free tier that was used to deploy the no-SQL MongoDB database.  For deployment, the mongodb.com online wizard was used to deploy the database to the AWS east region. A new user was created in addition to the administrator user for programmatic access. The URI for the service was then configured as an environment variable in Heroku that is in turn made available to the Python code that runs in the Heroku platform. The URI is then used to authenticate via the Python pymongo library to the remote MongoDB service. The developed application sends AJAX requests from the Web browser client to the deployed application in Heroku. These requests are mapped to Python function via the Flask route definitions. The developed Python then receives and contructs
-the rich queries and invokes the MongoDB interface provided by the pymongo Python library. The MongoDB service data store contains information about recipes stored as documents. These documents contain the information that is displayed on the site for recipe details and photo images.
+The MongoDB database as a service offering from www.mongodb.com was used for this project. The offering includes a free tier that was used to deploy the no-SQL MongoDB database.  For deployment, the mongodb.com online wizard was used to deploy the database to the AWS east region. A new user was created in addition to the administrator user for programmatic access. The URI for the service was then configured as an environment variable in Heroku that is in turn made available to the Python code that runs in the Heroku platform. The URI is then used to authenticate via the Python pymongo library to the remote MongoDB service. The developed application sends AJAX requests from the Web browser client to the deployed application in Heroku. These requests are mapped to Python function via the Flask route definitions. The developed Python then receives and contructs the rich queries and invokes the MongoDB interface provided by the pymongo Python library. The MongoDB service data store contains information about recipes stored as documents. These documents contain the information that is displayed on the site for recipe details and photo images.
 
 ## Deployment implementation
 Deployment is working well on Heroku. The deployment write-up can integrate the steps taken to deploy the web-app with steps needed for local development.
@@ -243,54 +261,46 @@ altered as needed. The code was downloaded from the following website::
 
 ## Reference
 
-805 Restaurant. [Online]. [Accessed 19 October 2020]. Available from: https://www.805restaurants.com/our-restaurants/hendon-central?view=menu
+* 805 Restaurant. [Online]. [Accessed 19 October 2020]. Available from: https://www.805restaurants.com/our-restaurants/hendon-central?view=menu
 
-Nigerian Lazy Chef. [Online]. [Accessed 30 October 2020]. Available from: http://www.nigerianlazychef.com/2016/12/atadindin-fried-rice-jollof-fried-ricelazychef-christmas/
+* Nigerian Lazy Chef. [Online]. [Accessed 30 October 2020]. Available from: http://www.nigerianlazychef.com/2016/12/atadindin-fried-rice-jollof-fried-ricelazychef-christmas/
 
-Chef Ola. [Online]. [Accessed 31 October 2020]. Available from: https://cheflolaskitchen.com/jollof-rice/
+* Chef Ola. [Online]. [Accessed 31 October 2020]. Available from: https://cheflolaskitchen.com/jollof-rice/
 
-Nigerian Lazy Chef. [Online]. [Accessed 31 October 2020]. Available from: http://www.nigerianlazychef.com/author/nma/
+* Nigerian Lazy Chef. [Online]. [Accessed 31 October 2020]. Available from: http://www.nigerianlazychef.com/author/nma/
 
-Grilled Tiger Prawns with Chilli and garlic sauce. [Online].  [Accessed 31 October 2020]. Available from: https://www.yummly.com/recipe/Grilled-Prawns-1658835?prm-v1
+* Grilled Tiger Prawns with Chilli and garlic sauce. [Online].  [Accessed 31 October 2020]. Available from: https://www.yummly.com/recipe/Grilled-Prawns-1658835?prm-v1 *Description, ingredients and instructions.* . [Online].  [Accessed 3 November 2020]. Available from: https://www.yummly.com/recipe/Grilled-Prawns-1658835?prm-v1#directions
 
-Description, ingredients and instructions. . [Online].  [Accessed 3 November 2020]. Available from: https://www.yummly.com/recipe/Grilled-Prawns-1658835?prm-v1#directions
+* Paraibano Batista Image for Prawns and Chilli. [Online].  [Accessed 13 November 2020]. Available from:  http://www.joaoalberto.com/2019/03/12/chef-paraibano-batista-e-destaque-no-festival-gastro-bom-de-mesa-desta-terca/
 
-Paraibano Batista Image for Prawns and Chilli. [Online].  [Accessed 13 November 2020]. Available from:  http://www.joaoalberto.com/2019/03/12/chef-paraibano-batista-e-destaque-no-festival-gastro-bom-de-mesa-desta-terca/
+* Vejario Abril. [Online]. [Accessed 14 November 2020]. https://vejario.abril.com.br/blog/beira-mar/batista-o-braco-direito-do-chef-claude-troisgros-serve-seu-primeiro-menu-degustacao-autoral-no-restaurante-do-patrao/
 
-Vejario Abril. [Online]. [Accessed 14 November 2020]. https://vejario.abril.com.br/blog/beira-mar/batista-o-braco-direito-do-chef-claude-troisgros-serve-seu-primeiro-menu-degustacao-autoral-no-restaurante-do-patrao/
+* Preciouscore. [Online].[Accessed 17 November 2020]. Available from:
+https://www.preciouscore.com/egusi-soup/ *Image, Description, Ingredients and Instructions obtained from*: https://www.preciouscore.com/egusi-soup/
 
-Preciouscore. [Online].[Accessed 17 November 2020]. Available from:
-https://www.preciouscore.com/egusi-soup/
-Image, Description, Ingredients and Instructions obtained from: https://www.preciouscore.com/egusi-soup/
+* EDIKANOKONG SOUP. [Online].[Accessed 21 November 2020]. Available from: 
 
-EDIKANOKONG SOUP. [Online].[Accessed 21 November 2020]. Available from:
+* Foodempire. [Online]. [Accessed 22 November 2020]. Available from: https://foodempire.com.ng/product/edikanikong-soup/
 
-Foodempire. [Online]. [Accessed 22 November 2020]. Available from:
-https://foodempire.com.ng/product/edikanikong-soup/
+* Dooneyskitchen. [Online]. [Accessed 26 November 2020]. Available from:
+  Ingredients and Instructions and author image from: http://dooneyskitchen.com/edikaikong-a-traditional-calabar-recipe/
 
-Dooneyskitchen. [Online]. [Accessed 26 November 2020]. Available from:
-Ingredients and Instructions and author image from: http://dooneyskitchen.com/edikaikong-a-traditional-calabar-recipe/
+* Monika Tilapia. [Online].  [Accessed 3 December 2020]. Available from:
+  Image From: https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
+  Ingredients, description, Instructions [Online].  [Accessed 3 - 5 December 2020]. Available from: https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
 
-Monika Tilapia. [Online].  [Accessed 3 December 2020]. Available from:
-Image From: https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
+* Chef Michael Smith. [Online].  [Accessed 26 December 2020]. Available from: https://www.cookthatbook.com/contact-us/interview-with-chef-michael-smith/
 
-Ingredients, description, Instructions [Online].  [Accessed 3 - 5 December 2020]. Available from: https://www.africanvibes.com/best-african-summer-grilled-fish-recipes/
+* West African-Style Peanut Stew with Chicken. [Online]. [Accessed 26 December 2020]. Available from: https://www.allrecipes.com/recipe/276720/west-african-style-peanut-stew-with-chicken//
 
-Chef Michael Smith. [Online].  [Accessed 26 December 2020]. Available from:
-from: https://www.cookthatbook.com/contact-us/interview-with-chef-michael-smith/
+* Moroccan Chicken with Saffron and Preserved Lemon Recipe Source. [Online]. [Accessed 27 December 2020]. https://www.allrecipes.com/recipe/246488/moroccan-chicken-with-saffron-and-preserved-lemon/
 
-West African-Style Peanut Stew with Chicken. [Online]. [Accessed 26 December 2020]. Available from: https://www.allrecipes.com/recipe/276720/west-african-style-peanut-stew-with-chicken//
-
-Moroccan Chicken with Saffron and Preserved Lemon Recipe Source. [Online]. [Accessed 27 December 2020]. https://www.allrecipes.com/recipe/246488/moroccan-chicken-with-saffron-and-preserved-lemon/
-
-Moroccan Chickpea Stew Recipe Source. [Online]. [Accessed 27 December 2020].
+* Moroccan Chickpea Stew Recipe Source. [Online]. [Accessed 27 December 2020].
 https://www.allrecipes.com/recipe/217947/moroccan-chickpea-stew/#nutrition
 
-Moroccan Lentil Soup Recipe Source [Online]. [Accessed 27 December 2020]. 
+* Moroccan Lentil Soup Recipe Source [Online]. [Accessed 27 December 2020]. 
 https://www.allrecipes.com/recipe/12960/moroccan-lentil-soup/#nutrition
 
-Sweet and Nutty Moroccan Couscous [Online]. [Accessed 28 December 2020].
-https://www.allrecipes.com/recipe/81551/sweet-and-nutty-moroccan-couscous/
+* Sweet and Nutty Moroccan Couscous [Online]. [Accessed 28 December 2020]. https://www.allrecipes.com/recipe/81551/sweet-and-nutty-moroccan-couscous/
 
-Peri Peri African Chicken [Online]. [Accessed 28 December 2020].
-https://www.allrecipes.com/recipe/72064/peri-peri-african-chicken/#nutrition
+* Peri Peri African Chicken [Online]. [Accessed 28 December 2020]. https://www.allrecipes.com/recipe/72064/peri-peri-african-chicken/#nutrition
